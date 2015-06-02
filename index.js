@@ -10,7 +10,7 @@ module.exports = function(uri, cb) {
   }
 
   if (!parsed.host) {
-    return cb(new Error(`Invalid url: ${uri}`))
+    return cb(new Error('Invalid url: ' + uri))
   }
 
   var opts = {
@@ -27,7 +27,7 @@ module.exports = function(uri, cb) {
   http.request(opts, function(res) {
     var code = res.statusCode
     if (code >= 400) {
-      return cb(new Error(`Received invalid status code: ${code}`))
+      return cb(new Error('Received invalid status code: ' + code))
     }
     cb(null, +res.headers['content-length'])
   }).end()
