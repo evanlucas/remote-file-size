@@ -1,0 +1,7 @@
+remote-file-size - get the size of a remote file
+
+  usage: remote-file-size <url>
+
+  example:
+    remote-file-size http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz
+    // => 1.55 kB
