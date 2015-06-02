@@ -18,17 +18,21 @@ module.exports = function(uri, cb) {
   , port: parsed.port
   , path: parsed.path
   , method: 'HEAD'
+  , agent: false
   }
 
   var http = parsed.protocol === 'https:'
     ? require('https')
     : require('http')
 
-  http.request(opts, function(res) {
+  var req = http.request(opts)
+  req.end()
+
+  req.on('response', function(res) {
     var code = res.statusCode
     if (code >= 400) {
       return cb(new Error('Received invalid status code: ' + code))
     }
     cb(null, +res.headers['content-length'])
-  }).end()
+  })
 }
