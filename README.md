@@ -1,5 +1,7 @@
 # remote-file-size
 
+[![Build Status](https://travis-ci.org/evanlucas/remote-file-size.svg)](https://travis-ci.org/evanlucas/remote-file-size)
+
 Get the size of a remote file
 
 ## Install
