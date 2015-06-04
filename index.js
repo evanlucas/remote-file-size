@@ -22,7 +22,8 @@ module.exports = function(options, cb) {
     if (!len) {
       return cb(new Error('Unable to determine file size'))
     }
-    if (isNaN(+len)) {
+    len = +len
+    if (len !== len) {
       return cb(new Error('Invalid Content-Length received'))
     }
 
