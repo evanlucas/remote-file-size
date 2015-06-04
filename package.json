@@ -1,6 +1,6 @@
 {
   "name": "remote-file-size",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Get the size of a remote file",
   "main": "index.js",
   "scripts": {
