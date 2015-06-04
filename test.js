@@ -4,7 +4,7 @@ var test = require('tape')
 test('should fail on invalid url', function(t) {
   remote('blah', function(err, out) {
     t.ok(err, 'err should exist')
-    t.equal(err.message, 'Invalid url: blah')
+    t.equal(err.message, 'Invalid URI "blah"')
     t.end()
   })
 })
@@ -20,6 +20,19 @@ test('should fail on 404', function(t) {
 test('should return null, size on success', function(t) {
   var u = 'http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz'
   remote(u, function(err, out) {
+    t.ifError(err, 'err should not exist')
+    t.ok(out, 'out should exist')
+    t.equal(out, 1548)
+    t.end()
+  })
+})
+
+test('should work passing an object', function(t) {
+  var opts = {
+    uri: 'http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz'
+  }
+
+  remote(opts, function(err, out) {
     t.ifError(err, 'err should not exist')
     t.ok(out, 'out should exist')
     t.equal(out, 1548)
