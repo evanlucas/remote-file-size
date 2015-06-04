@@ -7,12 +7,21 @@ var help = require('help')()
   , knownOpts = { raw: Boolean
                 , help: Boolean
                 , version: Boolean
+                , auth: String
+                , 'follow-redirect': Boolean
+                , 'max-redirects': Number
                 }
   , shortHand = { r: ['--raw']
                 , h: ['--help']
                 , v: ['--version']
+                , a: ['--auth']
+                , f: ['--follow-redirect']
+                , m: ['--max-redirects']
                 }
-  , defs = { raw: false }
+  , defs = { raw: false
+           , 'follow-redirect': true
+           , 'max-redirects': 2
+           }
   , parsed = nopt(knownOpts, shortHand)(defs)
   , package = require('../package')
 
@@ -34,7 +43,24 @@ var url = args.shift()
 if (url === 'help')
   return help(0)
 
-remote(url, function(err, out) {
+var opts = {
+  uri: url
+}
+
+if (parsed.auth) {
+  opts.auth = parsed.auth
+}
+
+if (parsed['follow-redirect']) {
+  opts.followRedirect = parsed['follow-redirect']
+}
+
+if (parsed.hasOwnProperty('max-redirects')) {
+  opts.maxRedirects = parsed['max-redirects']
+}
+
+
+remote(opts, function(err, out) {
   if (err) {
     console.error(err)
     process.exit(1)

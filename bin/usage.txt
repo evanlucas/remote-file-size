@@ -3,9 +3,11 @@ remote-file-size - get the size of a remote file
   usage: remote-file-size [options] <url>
 
   options:
-    -h, --help            show help and usage
-    -v, --version         show version
-    -r, --raw             show raw result (no pretty formatting)
+    -h, --help                  show help and usage
+    -v, --version               show version
+    -r, --raw                   show raw result (no pretty formatting)
+    -f, --follow-redirect       follow redirects (true by default)
+    -m, --max-redirects <num>   set max number of redirects (defaults to 2)
 
   example:
     remote-file-size http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz
