@@ -28,6 +28,9 @@ remote(url, function(err, o) {
 })
 ```
 
+`remote-file-size` uses `request` under the hood, so you could
+also pass an options object instead of the url string.
+
 ## Author
 
 Evan Lucas
