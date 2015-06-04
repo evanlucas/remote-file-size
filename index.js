@@ -1,38 +1,31 @@
-var url = require('url')
+var request = require('request')
 
-module.exports = function(uri, cb) {
-  var parsed
-  try {
-    parsed = url.parse(uri)
+module.exports = function(options, cb) {
+  if ('string' === typeof options) {
+    options = {
+      uri: options
+    }
   }
-  catch (err) {
-    return cb(err)
-  }
+  options = options || {}
 
-  if (!parsed.host) {
-    return cb(new Error('Invalid url: ' + uri))
-  }
+  options.method = 'HEAD'
+  options.followAllRedirects = true
 
-  var opts = {
-    host: parsed.host
-  , port: parsed.port
-  , path: parsed.path
-  , method: 'HEAD'
-  , agent: false
-  }
-
-  var http = parsed.protocol === 'https:'
-    ? require('https')
-    : require('http')
-
-  var req = http.request(opts)
-  req.end()
-
-  req.on('response', function(res) {
+  request(options, function(err, res, body) {
+    if (err) return cb(err)
     var code = res.statusCode
     if (code >= 400) {
       return cb(new Error('Received invalid status code: ' + code))
     }
+
+    var len = res.headers['content-length']
+    if (!len) {
+      return cb(new Error('Unable to determine file size'))
+    }
+    if (isNaN(+len)) {
+      return cb(new Error('Invalid Content-Length received'))
+    }
+
     cb(null, +res.headers['content-length'])
   })
 }
