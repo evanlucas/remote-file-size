@@ -28,6 +28,30 @@ remote(url, function(err, o) {
 })
 ```
 
+## CLI Usage
+
+```
+$ remote-file-size --help
+
+remote-file-size - get the size of a remote file
+
+  usage: remote-file-size [options] <url>
+
+  options:
+    -h, --help                  show help and usage
+    -v, --version               show version
+    -r, --raw                   show raw result (no pretty formatting)
+    -f, --follow-redirect       follow redirects (true by default)
+    -m, --max-redirects <num>   set max number of redirects (defaults to 2)
+
+  example:
+    remote-file-size http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz
+    // => 1.55 kB
+
+    remote-file-size --raw http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz
+    // => 1548
+```
+
 `remote-file-size` uses `request` under the hood, so you could
 also pass an options object instead of the url string.
 
