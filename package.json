@@ -4,7 +4,7 @@
   "description": "Get the size of a remote file",
   "main": "index.js",
   "scripts": {
-    "test": "tape test.js"
+    "test": "tap test.js --cov"
   },
   "bin": {
     "remote-file-size": "./bin/cmd.js"
@@ -16,7 +16,7 @@
     "request": "~2.57.0"
   },
   "devDependencies": {
-    "tape": "~4.0.0"
+    "tap": "~2.2.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",

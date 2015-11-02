@@ -1,5 +1,7 @@
-var test = require('tape')
-  , remote = require('./')
+'use strict'
+
+const test = require('tap').test
+    , remote = require('./')
 
 test('should fail on invalid url', function(t) {
   remote('blah', function(err, out) {
@@ -18,7 +20,7 @@ test('should fail on 404', function(t) {
 })
 
 test('should return null, size on success', function(t) {
-  var u = 'http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz'
+  const u = 'http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz'
   remote(u, function(err, out) {
     t.ifError(err, 'err should not exist')
     t.ok(out, 'out should exist')
@@ -28,7 +30,7 @@ test('should return null, size on success', function(t) {
 })
 
 test('should work passing an object', function(t) {
-  var opts = {
+  const opts = {
     uri: 'http://registry.npmjs.org/argsplit/-/argsplit-1.0.2.tgz'
   }
 
