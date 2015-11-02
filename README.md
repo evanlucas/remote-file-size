@@ -1,6 +1,7 @@
 # remote-file-size
 
 [![Build Status](https://travis-ci.org/evanlucas/remote-file-size.svg)](https://travis-ci.org/evanlucas/remote-file-size)
+[![Coverage Status](https://coveralls.io/repos/evanlucas/remote-file-size/badge.svg?branch=master&service=github)](https://coveralls.io/github/evanlucas/remote-file-size?branch=master)
 
 Get the size of a remote file
 
