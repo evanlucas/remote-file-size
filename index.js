@@ -1,3 +1,5 @@
+'use strict'
+
 var request = require('request')
 
 module.exports = function(options, cb) {
@@ -13,7 +15,7 @@ module.exports = function(options, cb) {
 
   request(options, function(err, res, body) {
     if (err) return cb(err)
-    var code = res.statusCode
+    const code = res.statusCode
     if (code >= 400) {
       return cb(new Error('Received invalid status code: ' + code))
     }
