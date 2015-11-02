@@ -1,29 +1,29 @@
 #!/usr/bin/env node
 
-var help = require('help')()
-  , remote = require('../')
-  , pb = require('pretty-bytes')
-  , nopt = require('noptd')
-  , knownOpts = { raw: Boolean
-                , help: Boolean
-                , version: Boolean
-                , auth: String
-                , 'follow-redirect': Boolean
-                , 'max-redirects': Number
-                }
-  , shortHand = { r: ['--raw']
-                , h: ['--help']
-                , v: ['--version']
-                , a: ['--auth']
-                , f: ['--follow-redirect']
-                , m: ['--max-redirects']
-                }
-  , defs = { raw: false
-           , 'follow-redirect': true
-           , 'max-redirects': 2
-           }
-  , parsed = nopt(knownOpts, shortHand)(defs)
-  , package = require('../package')
+const help = require('help')()
+    , remote = require('../')
+    , pb = require('pretty-bytes')
+    , nopt = require('noptd')
+    , knownOpts = { raw: Boolean
+                  , help: Boolean
+                  , version: Boolean
+                  , auth: String
+                  , 'follow-redirect': Boolean
+                  , 'max-redirects': Number
+                  }
+    , shortHand = { r: ['--raw']
+                  , h: ['--help']
+                  , v: ['--version']
+                  , a: ['--auth']
+                  , f: ['--follow-redirect']
+                  , m: ['--max-redirects']
+                  }
+    , defs = { raw: false
+             , 'follow-redirect': true
+             , 'max-redirects': 2
+             }
+    , parsed = nopt(knownOpts, shortHand)(defs)
+    , package = require('../package')
 
 if (parsed.help) {
   return help(0)
@@ -34,16 +34,16 @@ if (parsed.version) {
   return
 }
 
-var args = parsed.argv.remain
+const args = parsed.argv.remain
 
 if (!args.length)
   return help(1)
 
-var url = args.shift()
+const url = args.shift()
 if (url === 'help')
   return help(0)
 
-var opts = {
+const opts = {
   uri: url
 }
 

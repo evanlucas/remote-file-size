@@ -58,7 +58,7 @@ test('should return error if invalid content-length', function(t) {
     })
   })
 
-  t.on('end', () => {
+  t.on('end', function() {
     server.close()
   })
 })
