@@ -6,7 +6,7 @@
 Get the size of a remote file
 
 *Note: remote-file-size is only supported on iojs and node v4+. To use with
-and older version of node, please use `remote-file-size@2`.*
+an older version of node, please use `remote-file-size@2`.*
 
 ## Install
 
