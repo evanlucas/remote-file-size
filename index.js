@@ -12,6 +12,7 @@ module.exports = function(options, cb) {
 
   options.method = 'HEAD'
   options.followAllRedirects = true
+  options.followOriginalHttpMethod = true
 
   request(options, function(err, res, body) {
     if (err) return cb(err)
