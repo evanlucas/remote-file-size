@@ -10,13 +10,13 @@
     "remote-file-size": "./bin/cmd.js"
   },
   "dependencies": {
-    "help": "~2.1.0",
+    "help": "~3.0.2",
     "noptd": "~2.0.0",
-    "pretty-bytes": "~2.0.1",
-    "request": "~2.81.0"
+    "pretty-bytes": "~5.1.0",
+    "request": "~2.87.0"
   },
   "devDependencies": {
-    "tap": "~2.2.0"
+    "tap": "~12.0.1"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
