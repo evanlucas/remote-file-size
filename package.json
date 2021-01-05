@@ -16,7 +16,7 @@
     "request": "~2.87.0"
   },
   "devDependencies": {
-    "tap": "~12.0.1"
+    "tap": "~14.11.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
