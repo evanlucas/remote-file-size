@@ -13,10 +13,10 @@
     "help": "~3.0.2",
     "noptd": "~2.0.0",
     "pretty-bytes": "~5.1.0",
-    "request": "~2.87.0"
+    "request": "~2.88.2"
   },
   "devDependencies": {
-    "tap": "~12.0.1"
+    "tap": "~14.11.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
